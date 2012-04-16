@@ -300,7 +300,7 @@
     // # Actions {{
 
     // ## Contents (folder_contents) {{{
-    // FIXME: not working
+    /* FIXME: not working
     $(document).on('plone_overlay.plone-action-folderContents', function(e) {
         var self = this;
 
@@ -362,7 +362,7 @@
             $this.attr('href', $this.attr('href') + '/folder_contents');
         });
 
-    });
+    }); */
     // }}}
 
     // TODO: bellow i listed action which i think we should implement, i might,
