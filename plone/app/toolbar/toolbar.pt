@@ -14,7 +14,8 @@
             <a href="#"
               tal:attributes="
                   href item/url|nothing;
-                  target item/link_target|nothing;"
+                  target item/link_target|nothing;
+                  title python:item.get('description') or None;"
               tal:content="item/title">Link Title</a>
           </li>
         </ul>
@@ -23,7 +24,9 @@
           <li tal:repeat="item view/contentmenu"
               tal:attributes="class string:dropdown ${item/klass|nothing}; id item/id|nothing;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-               tal:attributes="href item/action; target item/link_target|nothing;">
+               tal:attributes="href item/action;
+                               target item/link_target|nothing;
+                               title python:item.get('description') or None;">
               <span tal:content="item/title">Link Title</span>
               <span tal:condition="python:'extra' in item and 'stateTitle' in item['extra']"
                     tal:attributes="class item/extra/class"
@@ -34,7 +37,9 @@
               <li tal:repeat="subitem item/submenu"
                   tal:attributes="class subitem/klass|nothing; id subitem/id|nothing;">
                 <a href="#"
-                   tal:attributes="href subitem/action; target subitem/link_target|nothing;">
+                   tal:attributes="href subitem/action;
+                                   target subitem/link_target|nothing;
+                                   title python:subitem.get('description') or None;">
                   <img src="#" alt="icon"
                        tal:condition="subitem/icon|nothing"
                        tal:attributes="src subitem/icon" />
@@ -48,7 +53,8 @@
 
           <li class="dropdown" id="plone-personal-actions">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-               tal:attributes="href view/user_homeurl">
+               tal:attributes="href view/user_homeurl;
+                               title context/portal_actions/user/description|nothing;">
               <img src="#" alt="user portrait"
                   tal:condition="view/user_portrait"
                   tal:attributes="src view/user_portrait" />
@@ -59,7 +65,9 @@
               <li tal:repeat="subitem view/user_actions"
                 tal:attributes="id string:plone-personal-actions-${subitem/id};">
                 <a href="#"
-                   tal:attributes="href subitem/url; target subitem/link_target|nothing;"
+                   tal:attributes="href subitem/url;
+                                   target subitem/link_target|nothing;
+                                   title python:subitem.get('description') or None;"
                    tal:content="subitem/title">Link Title</a>
               </li>
             </ul>
