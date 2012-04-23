@@ -235,6 +235,13 @@
                     "pastetext source"
         }); */
 
+        // Initialize TinyMCE without KSS
+        $('textarea.mce_editable', overlay.body).each(function(i, textarea) {
+            var config = new TinyMCEConfig(textarea.id);
+            delete InitializedTinyMCEInstances[textarea.id]
+            config.init();
+        });
+
         // tabs (ala twitter bootstrap)
         var tabs = $('<ul class="nav nav-tabs"></ul>'),
             tabs_content = $('<div class="tab-content">'),
