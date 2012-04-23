@@ -225,7 +225,7 @@
             overlay.form.attr(attr.name, attr.value);
           });
 
-        // trigger tinymce
+        /* trigger tinymce
         // TODO: for some reason i couldn't get wysiwyg widget to add correct
         // class for this textarea
         $('textarea#plone-app-texttile-text', overlay.body).cleditor({
@@ -233,7 +233,7 @@
                     "numbering | outdent indent | alignleft center " +
                     "alignright justify | undo redo | link unlink | " +
                     "pastetext source"
-        });
+        }); */
 
         // tabs (ala twitter bootstrap)
         var tabs = $('<ul class="nav nav-tabs"></ul>'),
