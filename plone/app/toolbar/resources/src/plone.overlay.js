@@ -98,7 +98,7 @@
             });
 
             if (callback === undefined) {
-                $(document).trigger('plone_overlay.' + self.el.parent().attr('id'), self);
+                $(document).trigger('plone_overlay.' + self.el.closest('[id]').attr('id'), self);
             } else {
                 callback(self);
             }
@@ -172,7 +172,7 @@
             _window = window.parent;
         }
         _window.$(_window.document).on('iframe_link_clicked', function(e, el) {
-            var id = $(el).parent().attr('id'),
+            var id = $(el).closest('[id]').attr('id'),
                 event_handler_exists = false;
             $.each($(document).data('events').plone_overlay, function(i, e) {
                 if (e.namespace === id) {
