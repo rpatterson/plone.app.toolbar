@@ -18,12 +18,16 @@
         id="++resource++plone.app.toolbar/src/plone.min.css"
         />
 
+    <!-- toolbar specific CSS -->
+    <stylesheet
+        cacheable="False" compression="none" cookable="True"
+        enabled="True" bundle="toolbar"
+        id="++resource++plone.app.toolbar/src/toolbar-plone.css"
+        />
+
     <!-- BBB cleanup from old toolbar code -->
     <stylesheet
         remove="True"
         id="++resource++plone.app.toolbar/src/bootstrap-plone.min.css" />
-    <stylesheet
-        remove="True"
-        id="++resource++plone.app.toolbar/src/toolbar-plone.css" />
 
 </object>

@@ -1,0 +1,8 @@
+.navbar .btn-toolbar {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+.navbar .pull-right .dropdown-menu {
+    left: 0;
+    right: auto;
+}

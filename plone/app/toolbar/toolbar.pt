@@ -6,29 +6,33 @@
 
   <div id="plone-toolbar" class="navbar">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container btn-toolbar">
 
-        <ul class="nav">
-          <li tal:repeat="item view/actions"
-              tal:attributes="class item/klass|nothing; id item/id|nothing;">
-            <a href="#"
-              tal:attributes="
+        <div class="btn-group">
+            <a href="#" class="btn"
+               tal:repeat="item view/actions"
+               tal:attributes="
+                  class string:${item/klass|nothing} btn;
+                  id item/id|nothing;
                   href item/url|nothing;
                   target item/link_target|nothing;"
               tal:content="item/title">Link Title</a>
-          </li>
-        </ul>
+        </div>
 
-        <ul class="nav pull-right">
-          <li tal:repeat="item view/contentmenu"
-              tal:attributes="class string:dropdown ${item/klass|nothing}; id item/id|nothing;">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-               tal:attributes="href item/action; target item/link_target|nothing;">
+        <div class="pull-right">
+          <div class="btn-group"
+             tal:repeat="item view/contentmenu"
+             tal:attributes="class string:btn-group ${item/klass|nothing};
+                             id item/id|nothing;">
+            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"
+               tal:attributes="href item/action;
+                               target item/link_target|nothing;
+                               title python:item.get('description') or None;">
               <span tal:content="item/title">Link Title</span>
               <span tal:condition="python:'extra' in item and 'stateTitle' in item['extra']"
                     tal:attributes="class item/extra/class"
                     tal:content="item/extra/stateTitle">Private</span>
-              <b class="caret">
+              <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" tal:condition="item/submenu">
               <li tal:repeat="subitem item/submenu"
@@ -42,17 +46,13 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </div>
 
-          <li class="divider-vertical"></li>
-
-          <li class="dropdown" id="plone-personal-actions">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-               tal:attributes="href view/user_homeurl">
-              <img src="#" alt="user portrait"
-                  tal:condition="view/user_portrait"
-                  tal:attributes="src view/user_portrait" />
-              <span tal:content="view/user_displayname">Fullname</span>
+          <div class="btn-group" id="plone-personal-actions">
+            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"
+               tal:attributes="href view/user_homeurl;
+                               title context/portal_actions/user/description|nothing;">
+              Personal: <span tal:content="view/user_displayname">Fullname</span>
               <b class="caret">
             </a>
             <ul class="dropdown-menu">
@@ -63,8 +63,8 @@
                    tal:content="subitem/title">Link Title</a>
               </li>
             </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
 
       </div>
     </div>

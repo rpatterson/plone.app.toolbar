@@ -98,4 +98,11 @@
         import_steps="jsregistry
                       cssregistry" />
 
+    <genericsetup:upgradeDepends
+        profile="plone.app.toolbar:default"
+        source="2"
+        destination="3"
+        title="Install CSS for buttonized/more-visible toolbar."
+        import_steps="cssregistry" />
+
 </configure>
