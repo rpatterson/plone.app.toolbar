@@ -43,9 +43,6 @@
 
     // # Overlay {{{
     //
-    // Cache overlays by href
-    var _overlays = {};
-    //
     // TODO: kick garbas to write some docs
     // TODO: kick him again
     // TODO: write docs
@@ -56,16 +53,8 @@
             self.el = el;
             self.options = $.extend({ show: true }, options, { backdrop: false});
 
-            // Use previously loaded overlay if present
-            self._overlay = _overlays[el.attr('href')]
-            if (typeof(self._overlay) != 'undefined') {
-                self.modal('show')
-                return;
-            }
-
-            // new overlay
+            // overlay
             self._overlay = $('#plone-overlay-template').clone();
-            _overlays[el.attr('href')] = self._overlay
             self._overlay.appendTo($('body'));
             self.form = $('form', self._overlay);
             self.title = $('.modal-header > h3', self._overlay);
@@ -154,6 +143,9 @@
 
         if (overlay === undefined) {
             overlay = new $.plone.Overlay(el, options, callback);
+            el.data('plone-overlay', overlay);
+        } else {
+            overlay.modal('show')
         }
         return overlay;
     };
