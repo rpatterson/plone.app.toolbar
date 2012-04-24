@@ -18,4 +18,11 @@
         id="++resource++plone.app.toolbar/src/bootstrap-plone.min.css"
         />
 
+    <!-- toolbar specific CSS -->
+    <stylesheet
+        cacheable="False" compression="none" cookable="True"
+        enabled="True" bundle="toolbar"
+        id="++resource++plone.app.toolbar/src/toolbar-plone.css"
+        />
+
 </object>
