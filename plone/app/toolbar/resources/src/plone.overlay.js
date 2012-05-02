@@ -380,6 +380,7 @@
     // and i probably did, also forgot some.
 
     // ## Edit {{{
+    /*
     $(document).on('plone_overlay.plone-action-edit', function(e, overlay) {
         overlay.load(function(data) {
 
@@ -398,6 +399,7 @@
             }
         });
     });
+    */
     // }}}
 
     // ## Rules
