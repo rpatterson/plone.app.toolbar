@@ -174,7 +174,8 @@
                 self.window = self.el_iframe[0].contentWindow;
                 self.document = self.el_iframe.contents()[0];
                 self.document.open();
-                self.document.write(self.resources);
+                self.document.write('<head>' + self.resources +
+                                    '</head><body></body>');
                 self.document.close();
 
                 self.el_iframe.load(function() {
