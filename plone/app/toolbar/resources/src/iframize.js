@@ -191,9 +191,8 @@
                         // shrink iframe
                         self.shrink();
 
-                        if (($.nodeName(e.target, 'a') ||
-                                (el.parent().size() !== 0 && $.nodeName(el.parent()[0], 'a'))) &&
-                            (e.which === 1 || e.which === 2)) {
+                        if ($.nodeName(e.target, 'a') ||
+                            (el.parent().size() !== 0 && $.nodeName(el.parent()[0], 'a'))) {
 
                             if (!$.nodeName(e.target, 'a')) {
                                 el = el.parent();
