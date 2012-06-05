@@ -74,8 +74,8 @@
             var self = this,
                 res = self.res;
             if (self._is[type] === undefined) {
-                if ((res.substr((type.length + 1) * -1) === '.' + type) ||
-                    (res.substr((type.length + 1)) === type + '!')) {
+                if ((res.slice((type.length + 1) * -1) === '.' + type) ||
+                    (res.slice((type.length + 1)) === type + '!')) {
                     self._is[type] = true;
                 } else {
                     self._is[type] = false;
