@@ -170,7 +170,7 @@
         if (window.parent !== window) {
             _window = window.parent;
         }
-        _window.$(_window.document).on('iframe_link_clicked', function(e, el) {
+        _window.jQuery(_window.document).on('iframe_link_clicked', function(e, el) {
             var id = $(el).closest('[id]').attr('id'),
                 event_handler_exists = false;
             if ($(document).data('events') !== undefined) {
