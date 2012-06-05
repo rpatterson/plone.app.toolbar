@@ -178,7 +178,7 @@
                                     '</head><body></body>');
                 self.document.close();
 
-                self.el_iframe.load(function() {
+                var load = function() {
                     // copy clone of original into iframe
                     $('body', self.document).append(self.el)
                         .css({ background: 'transparent', height: '100%' });
@@ -217,17 +217,26 @@
                             }
                         }
                     });
-                });
-
+                }
+                if ($.browser.msie) {
+                    self.el_iframe.ready(load);
+                } else {
+                    self.el_iframe.load(load);
+                }
             } else {
                 self.el_iframe = $(target);
                 self.window = self.el_iframe[0].contentWindow;
                 self.document = self.el_iframe.contents()[0];
 
                 // copy clone of original into iframe
-                self.el_iframe.load(function() {
+                var load = function() {
                     $('body', self.document).append($(self.el));
-                });
+                }
+                if ($.browser.msie) {
+                    self.el_iframe.ready(load);
+                } else {
+                    self.el_iframe.load(load);
+                }
             }
         },
         shrink: function() {
