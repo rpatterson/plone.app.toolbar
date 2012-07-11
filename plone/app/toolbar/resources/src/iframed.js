@@ -150,15 +150,17 @@ IFramed.prototype = {
     self.loaded = true;
 
     self.el.setAttribute('style', self.options.style);
-    self.el.setAttribute('style', self.el.getAttribute('style') +
-        'height:' + self.document.body.offsetHeight + 'px;');
     self.document.body.setAttribute('style',
         self.document.body.getAttribute('style') || '' +
         'background:transparent;');
-    document.body.setAttribute('style',
-        document.body.getAttribute('style') || '' +
-        ';border-top:0' +
-        ';margin-top:' + self.el.offsetHeight + 'px;');
+    if ( self.el.id === "toolbar" ) {
+        self.el.setAttribute('style', self.el.getAttribute('style') +
+            'height:' + self.document.body.offsetHeight + 'px;');
+        document.body.setAttribute('style',
+            document.body.getAttribute('style') || '' +
+            ';border-top:0' +
+            ';margin-top:' + self.el.offsetHeight + 'px;');
+    }
   }
 };
 
