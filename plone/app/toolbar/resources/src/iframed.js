@@ -149,10 +149,7 @@ IFramed.prototype = {
     // mark iframe as loaded
     self.loaded = true;
 
-    self.el.setAttribute('style', 'border:0;overflow:hidden;' +
-        'position:absolute;left:0px;position:fixed;top:0px;overflow:hidden;' +
-        'width:100%;background-color:transparent;z-index:500;' +
-        self.options.style);
+    self.el.setAttribute('style', self.options.style);
     self.el.setAttribute('style', self.el.getAttribute('style') +
         'height:' + self.document.body.offsetHeight + 'px;');
     self.document.body.setAttribute('style',

@@ -33,6 +33,10 @@ class ToolbarViewlet(ViewletBase):
         resources = ';'.join(tile.resources())
         return (u'<div style="display:none;" ' + \
                     u'data-iframe="toolbar" ' + \
+                    u'data-iframe-style="border:0;overflow:hidden;' + \
+                    u'position:left:0px;position:fixed;top:0px;' + \
+                    u'overflow:hidden;width:100%%;' + \
+                    u'background-color:transparent;z-index:500;" ' + \
                     u'data-iframe-resources="%s">%s</div>' + \
                     u'\n<div data-iframe="toolbar-alerts" ' + \
                     u'data-iframe-resources="%s">%s</div>') % (
