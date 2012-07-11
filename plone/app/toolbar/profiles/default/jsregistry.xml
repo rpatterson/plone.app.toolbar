@@ -58,6 +58,9 @@
         enabled="True" inline="False" bundle="toolbar-init"
         id="++resource++plone.app.toolbar/src/iframed.js"
         />
+    <!-- BBB cleanup from old toolbar code -->
+    <javascript remove="True"
+                id="++resource++plone.app.toolbar/src/iframize.js" />
 
     <javascript 
         cacheable="False" compression="safe" cookable="False"

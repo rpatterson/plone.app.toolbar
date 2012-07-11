@@ -18,4 +18,12 @@
         id="++resource++plone.app.toolbar/src/plone.min.css"
         />
 
+    <!-- BBB cleanup from old toolbar code -->
+    <stylesheet
+        remove="True"
+        id="++resource++plone.app.toolbar/src/bootstrap-plone.min.css" />
+    <stylesheet
+        remove="True"
+        id="++resource++plone.app.toolbar/src/toolbar-plone.css" />
+
 </object>

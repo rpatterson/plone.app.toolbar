@@ -61,6 +61,8 @@
         source="1"
         destination="2"
         title="Install the bootstrap JS support for closing alerts."
-        import_steps="jsregistry" />
+        description="Also cleanup older resources."
+        import_steps="jsregistry
+                      cssregistry" />
 
 </configure>
