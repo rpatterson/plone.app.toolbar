@@ -39,6 +39,12 @@
         id="++resource++plone.app.toolbar/lib/bootstrap/js/bootstrap-modal.js"
         />
 
+    <javascript 
+        cacheable="False" compression="safe" cookable="False"
+        enabled="True" inline="False" bundle="bootstrap"
+        id="++resource++plone.app.toolbar/lib/bootstrap/js/bootstrap-alert.js"
+        />
+
     <!-- bootstrap datepicker -->
     <javascript 
         cacheable="False" compression="safe" cookable="False"

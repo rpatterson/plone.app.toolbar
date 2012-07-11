@@ -9,8 +9,36 @@
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         class=".bbb.ToolbarViewlet"
+        template="bbb_toolbar_alerts.pt"
         permission="plone.ViewToolbar"
         layer=".interfaces.IToolbarLayer"
+        />
+
+    <browser:viewletManager
+        name="plone.toolbar.alerts"
+        provides=".bbb.IToolbarAlerts"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+       
+    <browser:viewlet
+        name="plone.app.iterate.baseline_info"
+        manager=".bbb.IToolbarAlerts"
+        class="plone.app.iterate.browser.info.BaselineInfoViewlet"
+        template="info_baseline.pt"
+        permission="zope2.View" 
+        for="plone.app.iterate.interfaces.IBaseline"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        />
+    
+    <browser:viewlet
+        name="plone.app.iterate.checkout_info"
+        manager=".bbb.IToolbarAlerts"
+        class="plone.app.iterate.browser.info.CheckoutInfoViewlet"
+        template="info_checkout.pt"
+        permission="zope2.View" 
+        for="plone.app.iterate.interfaces.IWorkingCopy"
+        view="plone.app.layout.globals.interfaces.IViewView"
         />
 
     <!-- BBB: Used to override/disable parts of Plone 4.x that
