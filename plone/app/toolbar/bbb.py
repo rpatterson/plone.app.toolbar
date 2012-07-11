@@ -39,6 +39,9 @@ class ToolbarViewlet(ViewletBase):
                     u'background-color:transparent;z-index:500;" ' + \
                     u'data-iframe-resources="%s">%s</div>' + \
                     u'\n<div data-iframe="toolbar-alerts" ' + \
+                    u'data-iframe-style="position:left:0px;' + \
+                    u'position:fixed;top:0px;' + \
+                    u'background-color:transparent;z-index:500;" ' + \
                     u'data-iframe-resources="%s">%s</div>') % (
                         resources, tile_body, resources, self.index())
 
