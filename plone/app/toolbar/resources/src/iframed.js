@@ -160,6 +160,15 @@ IFramed.prototype = {
             document.body.getAttribute('style') || '' +
             ';border-top:0' +
             ';margin-top:' + self.el.offsetHeight + 'px;');
+    } else if ( self.el.id === "toolbar-alerts" ) {
+        var iframeAutoHeight = function (e) {
+            var iframe = self.el;
+            var $body = $(iframe, window.top.document).contents().find('body');
+            iframe.style.height = $body.height() + 'px';
+            iframe.style.width = $body.width() + 'px';
+        }
+        $(self.document).on('click', '[data-dismiss="alert"]', iframeAutoHeight);
+        iframeAutoHeight(self.el);
     }
   }
 };
