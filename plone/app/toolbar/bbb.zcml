@@ -89,4 +89,13 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:upgradeDepends
+        profile="plone.app.toolbar:default"
+        source="1"
+        destination="2"
+        title="Install the bootstrap JS support for closing alerts."
+        description="Also cleanup older resources."
+        import_steps="jsregistry
+                      cssregistry" />
+
 </configure>
