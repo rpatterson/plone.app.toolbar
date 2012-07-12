@@ -6,6 +6,8 @@ from zope.viewlet.viewlet import ViewletBase
 
 from plone.app.layout.globals.interfaces import IViewView
 
+from Products.CMFCore.utils import getToolByName
+
 
 class IToolbarAlerts(IViewletManager):
     """A viewlet manager that renders alerts managed by the toolbar."""
@@ -30,7 +32,17 @@ class ToolbarViewlet(ViewletBase):
         for el in tree.body.getchildren():
             tile_body += html.tostring(el)
 
-        resources = ';'.join(tile.resources())
+        resources = tile.resources()
+
+        portal_url = getToolByName(context, 'portal_url')()
+        view = context.restrictedTraverse('@@at_base_edit_view')
+        fieldsets = view.fieldsets()
+        fields = view.fields(fieldsets)
+        css = context.getUniqueWidgetAttr(fields, 'helper_css')
+        js = context.getUniqueWidgetAttr(fields, 'helper_js')
+        resources.extend(portal_url + '/' + item for item in css + js)
+
+        resources = ';'.join(resources)
         return (u'<div style="display:none;" ' + \
                     u'data-iframe="toolbar" ' + \
                     u'data-iframe-style="border:0;overflow:hidden;' + \

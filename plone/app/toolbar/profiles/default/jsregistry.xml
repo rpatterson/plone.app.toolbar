@@ -4,6 +4,7 @@
     <!-- assign bundle to other scritps, for now -->
     <javascript bundle="tinymce" id="tiny_mce.js"  />
     <javascript bundle="tinymce" id="tiny_mce_init.js"  />
+    <javascript bundle="jquery" id="jquery-integration.js"  />
 
     <!-- jquery form -->
     <!-- TODO: this is actually plone.app.jquerytools.form.js but would be nice
