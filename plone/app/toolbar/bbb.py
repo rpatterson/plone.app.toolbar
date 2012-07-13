@@ -35,12 +35,13 @@ class ToolbarViewlet(ViewletBase):
         resources = tile.resources()
 
         portal_url = getToolByName(context, 'portal_url')()
-        view = context.restrictedTraverse('@@at_base_edit_view')
-        fieldsets = view.fieldsets()
-        fields = view.fields(fieldsets)
-        css = context.getUniqueWidgetAttr(fields, 'helper_css')
-        js = context.getUniqueWidgetAttr(fields, 'helper_js')
-        resources.extend(portal_url + '/' + item for item in css + js)
+        view = context.restrictedTraverse('@@at_base_edit_view', None)
+        if view is not None:
+            fieldsets = view.fieldsets()
+            fields = view.fields(fieldsets)
+            css = context.getUniqueWidgetAttr(fields, 'helper_css')
+            js = context.getUniqueWidgetAttr(fields, 'helper_js')
+            resources.extend(portal_url + '/' + item for item in css + js)
 
         resources = ';'.join(resources)
         return (u'<div style="display:none;" ' + \
